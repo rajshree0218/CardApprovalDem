@@ -1,0 +1,34 @@
+import com.example.demo.model.CardApproval;
+global com.example.demo.model.CardApprovalResponse;
+
+rule "Check Annual Revenue"
+when 
+    $app : CardApproval(annualRevenue>100000)
+then 
+    $app.setApproved(true);
+    $app.setReason("Application approved based on annual revenue");
+end
+
+rule "Check years in business"
+when 
+    $app : CardApproval(yearsInBusinnes >2)
+then 
+    $app.setApproved(true);
+    $app.setReason("Application approved based on years in business");
+end
+
+rule "Adjust Approval Criteria Based on Card Type"
+when
+    $app : CardApproval(cardType == "travel")
+then
+    $app.setApproved(true);
+    $app.setReason("Additional scrutiny required for travel card application.");
+end
+ss
+rule "Apply Specific Rules for Different Card Types"
+when
+    $app : CardApproval(cardType == "travel", annualRevenue < 1000000)
+then
+    $app.setApproved(true);
+    $app.setReason("Travel card application rejected due to insufficient revenue.");
+end
