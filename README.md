@@ -1,5 +1,6 @@
 # CardApprovalDem
 demo Card Approval application, using spring boot and drools rule set
+:: https://medium.com/javarevisited/spring-boot-drools-rule-engine-example-965eea437ee9
 
 Title : Rapid Commercial Card Approval System
 Description : You're tasked with developing a simplified rule-based system for a financial institution to 
