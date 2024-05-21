@@ -21,10 +21,4 @@ public class CardApprovalController {
         CardApprovalResponse response = cardApprovalService.getApprovalDetails(cardApprovalRequest);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
-    KieSession
-    KieContailer = kisSession.get
 }
-
-
-//

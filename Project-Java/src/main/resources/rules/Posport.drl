@@ -1,0 +1,27 @@
+import com.example.Passport;
+
+rule "Passport is Valid"
+sallience 1
+activation group Passport
+when
+    $passport: Passport(expiryDate<LocalDate.now())
+then
+    sysout("passport is valid"+$passport.getPassportId);
+end
+
+rule "Passport is InValid"
+sallience 2
+activation group Passport
+when
+    $passport: Passport(expiryDate>LocalDate.now())
+then
+    sysout("passport is invalid"+$passport.getPassportId);
+end
+
+rule "validation of usablePages"
+when
+    $passport: Passport(usablePages<0)
+then
+    sysout("Usable pages are less");
+end
+

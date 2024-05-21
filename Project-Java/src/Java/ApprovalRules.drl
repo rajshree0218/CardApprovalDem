@@ -11,7 +11,7 @@ end
 
 rule "Check years in business"
 when 
-    $app : CardApproval(yearsInBusiness >2)
+    $app : CardApproval(yearsInBusinnes >2)
 then 
     $app.setApproved(true);
     $app.setReason("Application approved based on years in business");
@@ -19,7 +19,7 @@ end
 
 rule "Adjust Approval Criteria Based on Card Type"
 when
-    $app : CardApproval(cardType == "commercialCard", annualRevenue>5000)
+    $app : CardApproval(cardType == "travel")
 then
     $app.setApproved(true);
     $app.setReason("Additional scrutiny required for travel card application.");
@@ -32,5 +32,3 @@ then
     $app.setApproved(true);
     $app.setReason("Travel card application rejected due to insufficient revenue.");
 end
-
-//salience, activation group, agenda group
